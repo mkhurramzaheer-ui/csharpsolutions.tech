@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – C Sharp Solutions</title>
+  <meta name="description" content="Learn about C Sharp Solutions — our mission, values, expertise, and the team behind your software."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .value-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; transition: transform .3s, box-shadow .3s; }
+    .value-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.07); }
+    .value-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .value-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .value-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .mission-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px,3.5vw,40px); font-weight: 700; letter-spacing: -.8px; color: var(--ink); margin-bottom: 16px; }
+    .mission-content h2 span { color: var(--blue); }
+    .mission-content p { font-size: 16px; color: var(--ink2); line-height: 1.75; margin-bottom: 16px; }
+    .expertise-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+    .exp-item { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--ink2); }
+    .exp-item::before { content: '✓'; width: 24px; height: 24px; border-radius: 50%; background: var(--blue-light); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .timeline { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; gap: 24px; padding-bottom: 36px; position: relative; }
+    .tl-item:not(:last-child)::after { content: ''; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--border); }
+    .tl-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; box-shadow: 0 0 0 4px var(--blue-light); }
+    .tl-content { padding-top: 8px; }
+    .tl-year { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 4px; letter-spacing: .05em; }
+    .tl-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .tl-content p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    @media (max-width: 900px) {
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .mission-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">C#</div>
+    <span class="logo-name">C<span>#</span> Solutions</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="start-project.html">Start Project</a></li>
+  </ul>
+  <a href="start-project.html" class="nav-btn">Start a Project →</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="start-project.html" class="mob-btn" onclick="toggleMenu()">Start a Project →</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="sec-label">About Us</div>
+    <h1>We Are <span>C Sharp Solutions</span></h1>
+    <p>A passionate software development company with 10+ years of experience building scalable, high-quality digital solutions for businesses worldwide.</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="sec" style="background:var(--bg2)">
+  <div class="sec-inner">
+    <div class="stats-grid">
+      <div class="stat-card fade-up"><div class="stat-num">10+</div><div class="stat-label">Years of Experience</div></div>
+      <div class="stat-card fade-up"><div class="stat-num">6+</div><div class="stat-label">Service Areas</div></div>
+      <div class="stat-card fade-up"><div class="stat-num">100%</div><div class="stat-label">Client Satisfaction</div></div>
+      <div class="stat-card fade-up"><div class="stat-num">24h</div><div class="stat-label">Average Response Time</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="sec">
+  <div class="sec-inner">
+    <div class="mission-grid">
+      <div class="mission-content">
+        <div class="sec-label">Our Mission</div>
+        <h2 class="fade-up">Building Software That <span>Matters</span></h2>
+        <p class="fade-up">At C Sharp Solutions, we believe great software is the foundation of every successful business in the modern world. Our mission is to deliver reliable, scalable, and innovative software solutions that help businesses grow, compete, and succeed.</p>
+        <p class="fade-up">We combine deep technical expertise with a clear understanding of business needs. Every project we take on is treated as a long-term partnership — we care about your success beyond the delivery date.</p>
+        <div class="expertise-list fade-up">
+          <div class="exp-item">Enterprise-grade software development</div>
+          <div class="exp-item">Microsoft ecosystem specialists (.NET, Azure, C#)</div>
+          <div class="exp-item">End-to-end product development</div>
+          <div class="exp-item">Agile, transparent project delivery</div>
+          <div class="exp-item">Scalable architecture from day one</div>
+          <div class="exp-item">Ongoing support and maintenance</div>
+        </div>
+      </div>
+      <div class="why-imgwrap fade-up">
+        <div class="img-about" style="height:460px">
+          <div class="img-about-content">
+            <span class="big-icon">🎯</span>
+            <h3>Our Mission</h3>
+            <p>Delivering software that powers<br/>business growth and innovation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="sec" style="background:var(--bg2)">
+  <div class="sec-inner">
+    <div class="sec-label">Our Values</div>
+    <h2 class="sec-title fade-up">What We <span>Stand For</span></h2>
+    <p class="sec-desc fade-up">Our core values guide every decision we make and every line of code we write.</p>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <span class="value-icon">🏆</span>
+        <h3>Excellence</h3>
+        <p>We hold ourselves to the highest standards in code quality, design, and delivery. Mediocrity is never an option — we build things right the first time.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">🤝</span>
+        <h3>Partnership</h3>
+        <p>We don't just build software — we build relationships. Your success is our success. We work alongside you as a trusted technology partner.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">🔍</span>
+        <h3>Transparency</h3>
+        <p>Clear communication, honest timelines, and no surprises. You'll always know exactly where your project stands at every stage.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">⚡</span>
+        <h3>Innovation</h3>
+        <p>We stay ahead of technology trends so you don't have to. From AI integration to cloud-native architecture — we bring the future to your product.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">🛡️</span>
+        <h3>Reliability</h3>
+        <p>When we commit to a timeline and scope, we deliver. Our agile process ensures predictable, consistent delivery you can count on.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">📈</span>
+        <h3>Scalability</h3>
+        <p>We design every system with growth in mind. Your software should handle 10 users today and 10 million users tomorrow without breaking a sweat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="sec">
+  <div class="sec-inner">
+    <div class="why-grid">
+      <div>
+        <div class="sec-label">Our Story</div>
+        <h2 class="sec-title fade-up">A Decade of <span>Building</span></h2>
+        <p class="sec-desc fade-up">From our early days to where we are today — a journey driven by passion for great software.</p>
+        <div class="timeline">
+          <div class="tl-item fade-up">
+            <div class="tl-dot">🌱</div>
+            <div class="tl-content">
+              <div class="tl-year">FOUNDED</div>
+              <h4>C Sharp Solutions is Born</h4>
+              <p>Started with a passion for .NET development and a vision to build software that truly makes a difference for businesses.</p>
+            </div>
+          </div>
+          <div class="tl-item fade-up">
+            <div class="tl-dot">🌐</div>
+            <div class="tl-content">
+              <div class="tl-year">EXPANSION</div>
+              <h4>Web & Mobile Services Added</h4>
+              <p>Expanded our expertise to include full-stack web development and mobile applications, serving a wider range of clients.</p>
+            </div>
+          </div>
+          <div class="tl-item fade-up">
+            <div class="tl-dot">☁️</div>
+            <div class="tl-content">
+              <div class="tl-year">CLOUD ERA</div>
+              <h4>Azure Cloud Specialization</h4>
+              <p>Became Microsoft Azure specialists, helping businesses migrate to the cloud and modernize their infrastructure.</p>
+            </div>
+          </div>
+          <div class="tl-item fade-up">
+            <div class="tl-dot">🤖</div>
+            <div class="tl-content">
+              <div class="tl-year">TODAY</div>
+              <h4>AI-Powered Solutions</h4>
+              <p>Now delivering cutting-edge AI integrations, Chrome extensions, and automation solutions alongside our core services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="img-about" style="height:540px">
+          <div class="img-about-content">
+            <span class="big-icon">🚀</span>
+            <h3>10+ Years of Excellence</h3>
+            <p>A decade of building software<br/>that businesses rely on every day</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="sec stk-section">
+  <div class="sec-inner">
+    <div class="sec-label">Technology</div>
+    <h2 class="sec-title fade-up" style="color:#fff">Our <span style="color:#60a5fa">Core Expertise</span></h2>
+    <p class="sec-desc fade-up" style="color:#64748b">Deep knowledge across the full Microsoft stack and modern web technologies.</p>
+    <div class="stk-grid">
+      <div class="stk-item fade-up"><div class="stk-icon">🔷</div><div class="stk-name">C# / .NET</div><div class="stk-sub">10+ Years</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">⚛️</div><div class="stk-name">React</div><div class="stk-sub">Frontend</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🪟</div><div class="stk-name">Azure</div><div class="stk-sub">Cloud</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🟩</div><div class="stk-name">Node.js</div><div class="stk-sub">Backend</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🗄️</div><div class="stk-name">SQL Server</div><div class="stk-sub">Database</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">📱</div><div class="stk-name">React Native</div><div class="stk-sub">Mobile</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🐳</div><div class="stk-name">Docker</div><div class="stk-sub">DevOps</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🤖</div><div class="stk-name">OpenAI API</div><div class="stk-sub">AI</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">⚡</div><div class="stk-name">TypeScript</div><div class="stk-sub">Language</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🔥</div><div class="stk-name">Azure DevOps</div><div class="stk-sub">CI/CD</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🌐</div><div class="stk-name">.NET Blazor</div><div class="stk-sub">Web UI</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">☸️</div><div class="stk-name">Kubernetes</div><div class="stk-sub">Orchestration</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Ready to Work Together?</h2>
+  <p>Let's turn your idea into a product that makes a real difference.</p>
+  <div class="cta-actions">
+    <a href="start-project.html" class="btn-white">Start a Project →</a>
+    <a href="contact.html" class="btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff;">Get in Touch</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo"><div class="foot-logo-icon">C#</div><span class="foot-logo-name">C Sharp Solutions</span></div>
+      <p class="foot-desc">We build scalable, high-quality software solutions using modern technologies and best practices. Serving clients worldwide.</p>
+      <a href="mailto:info@csharpsolutions.tech" class="foot-email">info@csharpsolutions.tech</a>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <a href="index.html#services">Web Applications</a>
+      <a href="index.html#services">Mobile Apps</a>
+      <a href="index.html#services">Azure Cloud</a>
+      <a href="index.html#services">Desktop Software</a>
+      <a href="index.html#services">Chrome Extensions</a>
+      <a href="index.html#services">AI & Automation</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="start-project.html">Start a Project</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="mailto:info@csharpsolutions.tech">info@csharpsolutions.tech</a>
+      <a href="contact.html">Send a Message</a>
+      <a href="start-project.html">Get a Quote</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 C Sharp Solutions. All rights reserved.</span>
+    <span>Built with ❤️ for great software</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

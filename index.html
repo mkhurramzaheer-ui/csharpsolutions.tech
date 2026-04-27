@@ -1,723 +1,308 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>C Sharp Solutions – Software Development Company</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <title>C Sharp Solutions – Software Development & Cloud</title>
+  <meta name="description" content="C Sharp Solutions delivers end-to-end software development — web, mobile, desktop, Azure cloud, Chrome extensions, and AI solutions."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-```
-:root {
-  --bg: #f5f4f0;
-  --ink: #0f0f0f;
-  --ink2: #3a3a3a;
-  --accent: #1a6cf2;
-  --accent2: #0d3fa6;
-  --card: #ffffff;
-  --border: #e0deda;
-  --muted: #8a8a8a;
-  --tag-bg: #eaf0ff;
-  --tag-ink: #1a6cf2;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  overflow-x: hidden;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-  padding: 20px 6vw;
-  display: flex; align-items: center; justify-content: space-between;
-  background: rgba(245,244,240,0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-}
-
-.logo {
-  display: flex; align-items: center; gap: 12px; text-decoration: none;
-}
-.logo-svg {
-  width: 52px; height: 52px; flex-shrink: 0;
-  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
-}
-.logo:hover .logo-svg {
-  transform: rotate(15deg) scale(1.08);
-}
-.logo-hex-ring {
-  animation: spin-slow 12s linear infinite;
-  transform-origin: 26px 26px;
-}
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.logo:hover .logo-hex-ring {
-  animation-duration: 2s;
-}
-.logo-text {
-  display: flex; flex-direction: column; gap: 2px;
-}
-.logo-name {
-  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 17px;
-  line-height: 1; letter-spacing: -0.5px;
-  color: var(--ink);
-}
-.logo-name .cs {
-  color: #1a6cf2;
-}
-.logo-name .dot {
-  display: inline-block;
-  width: 5px; height: 5px; border-radius: 50%;
-  background: #1a6cf2; margin: 0 1px 2px;
-  vertical-align: middle;
-}
-.logo-tagline {
-  font-size: 9.5px; font-weight: 600; color: var(--muted);
-  letter-spacing: .15em; text-transform: uppercase;
-}
-
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a {
-  text-decoration: none; color: var(--ink2); font-size: 14.5px; font-weight: 500;
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--accent); }
-
-.nav-cta {
-  background: var(--ink); color: #fff; padding: 10px 22px; border-radius: 8px;
-  font-size: 14px; font-weight: 500; text-decoration: none;
-  transition: background .2s, transform .15s;
-}
-.nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  padding: 140px 6vw 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute; top: -100px; right: -100px;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(26,108,242,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--tag-bg); color: var(--tag-ink);
-  padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;
-  margin-bottom: 28px;
-  animation: fadeUp .6s ease both;
-}
-.hero-badge::before {
-  content: ''; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--accent); flex-shrink: 0;
-}
-
-.hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(42px, 5.5vw, 72px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -2px;
-  color: var(--ink);
-  animation: fadeUp .7s .1s ease both;
-}
-.hero h1 em { font-style: normal; color: var(--accent); }
-
-.hero-sub {
-  margin-top: 22px;
-  font-size: 17px; font-weight: 300; color: var(--ink2); line-height: 1.65;
-  max-width: 460px;
-  animation: fadeUp .7s .2s ease both;
-}
-
-.hero-actions {
-  margin-top: 38px; display: flex; gap: 14px; flex-wrap: wrap;
-  animation: fadeUp .7s .3s ease both;
-}
-.btn-primary {
-  background: var(--accent); color: #fff;
-  padding: 14px 30px; border-radius: 10px; font-size: 15px; font-weight: 500;
-  text-decoration: none; transition: background .2s, transform .15s;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
-.btn-ghost {
-  background: transparent; color: var(--ink);
-  padding: 14px 30px; border-radius: 10px; font-size: 15px; font-weight: 500;
-  text-decoration: none; border: 1.5px solid var(--border);
-  transition: border-color .2s, transform .15s;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-.hero-visual {
-  display: flex; flex-direction: column; gap: 16px;
-  animation: fadeUp .8s .2s ease both;
-}
-.hero-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 16px; padding: 22px 24px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
-  transition: transform .3s, box-shadow .3s;
-}
-.hero-card:hover { transform: translateY(-4px); box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
-.hero-card-icon { font-size: 26px; margin-bottom: 10px; }
-.hero-card h3 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-.hero-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
-
-.hero-stats {
-  display: flex; gap: 32px; margin-top: 40px;
-  animation: fadeUp .7s .4s ease both;
-}
-.stat { display: flex; flex-direction: column; }
-.stat-num {
-  font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
-  color: var(--ink); line-height: 1;
-}
-.stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-/* ── SECTION ── */
-section { padding: 90px 6vw; }
-
-.section-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--tag-bg); color: var(--tag-ink);
-  padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
-  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 18px;
-}
-
-.section-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(30px, 4vw, 48px);
-  font-weight: 800; letter-spacing: -1.5px;
-  line-height: 1.1; color: var(--ink);
-}
-.section-title em { font-style: normal; color: var(--accent); }
-
-.section-sub {
-  margin-top: 14px; font-size: 16px; font-weight: 300;
-  color: var(--ink2); line-height: 1.65; max-width: 540px;
-}
-
-/* ── SERVICES ── */
-#services { background: #fff; }
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 52px;
-}
-
-.service-card {
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: 18px; padding: 32px 28px;
-  transition: transform .3s, box-shadow .3s, border-color .3s;
-  position: relative; overflow: hidden;
-}
-.service-card::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(26,108,242,0.04), transparent);
-  opacity: 0; transition: opacity .3s;
-}
-.service-card:hover::before { opacity: 1; }
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(26,108,242,0.1);
-  border-color: rgba(26,108,242,0.2);
-}
-
-.service-icon {
-  width: 52px; height: 52px; background: var(--tag-bg);
-  border-radius: 14px; display: flex; align-items: center; justify-content: center;
-  font-size: 24px; margin-bottom: 20px;
-}
-.service-card h3 {
-  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
-  margin-bottom: 10px;
-}
-.service-card p { font-size: 14px; color: var(--ink2); line-height: 1.65; }
-.service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-.service-tag {
-  background: var(--tag-bg); color: var(--tag-ink);
-  padding: 3px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 500;
-}
-
-/* ── WHY US ── */
-#why {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-}
-.why-list { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
-.why-item {
-  display: flex; gap: 16px; align-items: flex-start;
-  padding: 20px; background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; transition: border-color .3s, transform .3s;
-}
-.why-item:hover { border-color: var(--accent); transform: translateX(4px); }
-.why-num {
-  font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
-  color: var(--accent); background: var(--tag-bg);
-  width: 32px; height: 32px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.why-item h4 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-.why-item p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
-
-.why-visual {
-  background: var(--ink); border-radius: 24px; padding: 40px;
-  display: flex; flex-direction: column; gap: 20px;
-  position: relative; overflow: hidden;
-}
-.why-visual::before {
-  content: '';
-  position: absolute; top: -80px; right: -80px;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(26,108,242,0.3) 0%, transparent 70%);
-}
-.why-visual-title {
-  font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800;
-  color: #fff; position: relative; z-index: 1;
-}
-.tech-stack { display: flex; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
-.tech-item {
-  background: rgba(255,255,255,0.1); color: #fff;
-  padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
-  border: 1px solid rgba(255,255,255,0.12);
-  transition: background .2s;
-}
-.tech-item:hover { background: rgba(26,108,242,0.4); }
-
-/* ── PROCESS ── */
-#process { background: #fff; }
-.process-steps {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-  margin-top: 52px; position: relative;
-}
-.process-steps::before {
-  content: '';
-  position: absolute; top: 32px; left: 10%; right: 10%; height: 2px;
-  background: linear-gradient(90deg, var(--accent), rgba(26,108,242,0.1));
-  z-index: 0;
-}
-.process-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
-.step-num {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--accent); color: #fff;
-  font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 20px; border: 4px solid #fff;
-  box-shadow: 0 0 0 2px var(--accent);
-}
-.process-step h4 {
-  font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px;
-}
-.process-step p { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-
-/* ── CONTACT ── */
-#contact {
-  background: var(--ink); color: #fff;
-  text-align: center; padding: 90px 6vw;
-}
-#contact .section-title { color: #fff; }
-#contact .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; margin-top: 14px; }
-
-.contact-card {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 20px; padding: 40px; max-width: 560px; margin: 44px auto 0;
-  backdrop-filter: blur(10px);
-}
-.contact-email {
-  font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700;
-  color: var(--accent); margin-bottom: 20px; display: block;
-  text-decoration: none;
-}
-.contact-email:hover { text-decoration: underline; }
-.contact-details {
-  display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px;
-}
-.contact-row {
-  display: flex; align-items: center; gap: 12px;
-  font-size: 14px; color: rgba(255,255,255,0.7);
-}
-.contact-row span:first-child { font-size: 18px; }
-
-/* ── FOOTER ── */
-footer {
-  background: #080808; color: rgba(255,255,255,0.4);
-  padding: 28px 6vw; display: flex; align-items: center;
-  justify-content: space-between; font-size: 13px;
-}
-footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
-footer a:hover { color: #fff; }
-.footer-links { display: flex; gap: 24px; }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding-top: 120px; }
-  .hero-visual { display: none; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
-  #why { grid-template-columns: 1fr; }
-  .why-visual { order: -1; }
-  .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .process-steps::before { display: none; }
-  .nav-links { display: none; }
-}
-@media (max-width: 580px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .process-steps { grid-template-columns: 1fr; }
-}
-```
-
+    /* HOME SPECIFIC */
+    .hero { padding: 100px 5vw 64px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(160deg, #f0f7ff 0%, #fff 60%); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -200px; right: -150px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%); }
+    .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-light); color: var(--blue); padding: 7px 16px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(37,99,235,0.2); }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 4.5vw, 60px); font-weight: 700; line-height: 1.1; letter-spacing: -1.5px; color: var(--ink); margin-bottom: 20px; }
+    .hero h1 .hl { color: var(--blue); }
+    .hero-desc { font-size: 17px; color: var(--ink2); line-height: 1.72; margin-bottom: 36px; max-width: 480px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero-stats { display: flex; gap: 0; }
+    .hstat { padding: 0 28px 0 0; }
+    .hstat:not(:last-child) { border-right: 1px solid var(--border); margin-right: 28px; }
+    .hstat-num { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; color: var(--ink); line-height: 1; }
+    .hstat-label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+    .hero-visual { position: relative; }
+    .hcard { position: absolute; background: #fff; border-radius: 14px; padding: 14px 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 12px; }
+    .hcard1 { bottom: -20px; left: -20px; min-width: 190px; }
+    .hcard2 { top: -14px; right: -14px; background: var(--blue); color: #fff; text-align: center; flex-direction: column; gap: 2px; padding: 14px 18px; }
+    .hcard-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .hcard-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--ink); }
+    .hcard-text span { font-size: 11px; color: var(--muted); }
+    .hcard2 strong { font-size: 24px; font-weight: 800; display: block; }
+    .hcard2 span { font-size: 11px; opacity: .85; }
+    @media (max-width: 900px) {
+      .hero { padding: 88px 4vw 48px; min-height: auto; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 34px; }
+      .hero-visual { order: -1; }
+      .hcard1 { left: 8px; bottom: -14px; min-width: 160px; padding: 10px 14px; }
+      .hcard2 { top: -10px; right: 8px; padding: 10px 14px; }
+      .hcard2 strong { font-size: 18px; }
+      .hstat { padding: 0 16px 0 0; margin-right: 16px; }
+      .hstat-num { font-size: 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+      .hero-actions { flex-direction: column; }
+      .btn-blue, .btn-outline { justify-content: center; }
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-
 <nav>
-  <a href="#" class="logo">
-    <svg class="logo-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="52" y2="52" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#1a6cf2"/>
-          <stop offset="100%" stop-color="#0d3fa6"/>
-        </linearGradient>
-        <linearGradient id="g2" x1="0" y1="0" x2="52" y2="52" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#4d9fff"/>
-          <stop offset="100%" stop-color="#1a6cf2"/>
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="1.5" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <!-- Outer hexagon -->
-      <polygon points="26,2 48,14 48,38 26,50 4,38 4,14" fill="url(#g1)" opacity="0.15" stroke="url(#g2)" stroke-width="1.5"/>
-      <!-- Spinning dashed ring -->
-      <polygon class="logo-hex-ring" points="26,6 45,16.5 45,35.5 26,46 7,35.5 7,16.5" fill="none" stroke="#1a6cf2" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-      <!-- Inner solid hexagon -->
-      <polygon points="26,10 42,19 42,33 26,42 10,33 10,19" fill="url(#g1)"/>
-      <!-- C# text -->
-      <text x="26" y="31" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="16" fill="white" filter="url(#glow)" letter-spacing="-1">C#</text>
-      <!-- Corner dots -->
-      <circle cx="26" cy="3.5" r="2" fill="#4d9fff"/>
-      <circle cx="47" cy="14.5" r="1.5" fill="#4d9fff" opacity="0.7"/>
-      <circle cx="47" cy="37.5" r="1.5" fill="#4d9fff" opacity="0.7"/>
-    </svg>
-    <div class="logo-text">
-      <span class="logo-name"><span class="cs">C#</span> Solutions</span>
-      <span class="logo-tagline">Software · Cloud · AI</span>
-    </div>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">C#</div>
+    <span class="logo-name">C<span>#</span> Solutions</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="start-project.html">Start Project</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in Touch →</a>
+  <a href="start-project.html" class="nav-btn">Start a Project →</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="start-project.html" class="mob-btn" onclick="toggleMenu()">Start a Project →</a>
+</div>
 
 <!-- HERO -->
-
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">Based in the Cloud · Built for the World</div>
-    <h1>We Build<br/><em>Software</em><br/>That Works.</h1>
-    <p class="hero-sub">
-      C Sharp Solutions delivers end-to-end software development — from web and mobile apps to AI-powered tools, Azure cloud infrastructure, and Chrome extensions. We turn ideas into reliable, scalable products.
-    </p>
-    <div class="hero-actions">
-      <a href="#services" class="btn-primary">Explore Services →</a>
-      <a href="#contact" class="btn-ghost">Contact Us</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">6+</span>
-        <span class="stat-label">Service Areas</span>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><div class="badge-dot"></div>Available for New Projects</div>
+      <h1>We Build Software<br/>That <span class="hl">Scales</span> With<br/>Your Business</h1>
+      <p class="hero-desc">C Sharp Solutions delivers end-to-end software — web apps, mobile, desktop, Azure cloud, Chrome extensions, and AI-powered solutions.</p>
+      <div class="hero-actions">
+        <a href="start-project.html" class="btn-blue">Start a Project →</a>
+        <a href="about.html" class="btn-outline">About Us</a>
       </div>
-      <div class="stat">
-        <span class="stat-num">100%</span>
-        <span class="stat-label">Client Focus</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">∞</span>
-        <span class="stat-label">Scalability</span>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-num">10+</div><div class="hstat-label">Years Experience</div></div>
+        <div class="hstat"><div class="hstat-num">6+</div><div class="hstat-label">Service Areas</div></div>
+        <div class="hstat"><div class="hstat-num">24h</div><div class="hstat-label">Response Time</div></div>
       </div>
     </div>
-  </div>
-
-  <div class="hero-visual">
-    <div class="hero-card">
-      <div class="hero-card-icon">🌐</div>
-      <h3>Web Application</h3>
-      <p>Modern, responsive web apps built with the latest frameworks and best practices.</p>
-    </div>
-    <div class="hero-card">
-      <div class="hero-card-icon">☁️</div>
-      <h3>Azure Cloud</h3>
-      <p>Scalable cloud infrastructure deployed and managed on Microsoft Azure.</p>
-    </div>
-    <div class="hero-card">
-      <div class="hero-card-icon">🤖</div>
-      <h3>AI Solutions</h3>
-      <p>Intelligent automation and AI integrations that supercharge your business.</p>
+    <div class="hero-visual">
+      <div class="img-hero">
+        <div class="img-hero-content">
+          <span class="big-icon">💻</span>
+          <h3>C Sharp Solutions</h3>
+          <p>Building software that powers your business</p>
+        </div>
+      </div>
+      <div class="hcard hcard1">
+        <div class="hcard-icon">🚀</div>
+        <div class="hcard-text"><strong>Project Launched</strong><span>Delivered on time</span></div>
+      </div>
+      <div class="hcard hcard2"><strong>5★</strong><span>Client Rating</span></div>
     </div>
   </div>
 </section>
 
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-inner">
+    <p class="trust-label">Technologies We Work With</p>
+    <div class="trust-logos">
+      <div class="trust-item">🪟 Microsoft Azure</div>
+      <div class="trust-item">⚛️ React</div>
+      <div class="trust-item">🔷 .NET / C#</div>
+      <div class="trust-item">🤖 OpenAI</div>
+      <div class="trust-item">🐳 Docker</div>
+      <div class="trust-item">🐙 GitHub</div>
+    </div>
+  </div>
+</div>
+
 <!-- SERVICES -->
-
-<section id="services">
-  <div class="section-tag">What We Do</div>
-  <h2 class="section-title reveal">Complete Software<br/><em>Development Services</em></h2>
-  <p class="section-sub reveal">From a single feature to a full product — we build, deploy, and scale software that drives real results.</p>
-
-  <div class="services-grid">
-
-```
-<div class="service-card reveal">
-  <div class="service-icon">🖥️</div>
-  <h3>Desktop Software</h3>
-  <p>Powerful desktop applications for Windows, macOS, and Linux. Built for performance, reliability, and seamless user experience on any machine.</p>
-  <div class="service-tags">
-    <span class="service-tag">.NET / C#</span>
-    <span class="service-tag">WPF</span>
-  </div>
-</div>
-
-<div class="service-card reveal">
-  <div class="service-icon">🌐</div>
-  <h3>Web Applications</h3>
-  <p>Full-stack web apps that are fast, secure, and scalable. From landing pages to complex enterprise portals — we handle every layer.</p>
-  <div class="service-tags">
-    <span class="service-tag">React</span>
-    <span class="service-tag">ASP.NET</span>
-    <span class="service-tag">Node.js</span>
-  </div>
-</div>
-
-<div class="service-card reveal">
-  <div class="service-icon">📱</div>
-  <h3>Mobile Applications</h3>
-  <p>Native and cross-platform mobile apps for iOS and Android. Intuitive design, smooth performance, and seamless backend integration.</p>
-  <div class="service-tags">
-    <span class="service-tag">React Native</span>
-    <span class="service-tag">iOS / Android</span>
-  </div>
-</div>
-
-<div class="service-card reveal">
-  <div class="service-icon">☁️</div>
-  <h3>Azure Cloud Solutions</h3>
-  <p>End-to-end Microsoft Azure solutions — cloud architecture, migration, DevOps pipelines, serverless functions, and ongoing infrastructure management.</p>
-  <div class="service-tags">
-    <span class="service-tag">Azure</span>
-    <span class="service-tag">DevOps</span>
-    <span class="service-tag">Serverless</span>
-  </div>
-</div>
-
-<div class="service-card reveal">
-  <div class="service-icon">🧩</div>
-  <h3>Chrome Extensions</h3>
-  <p>Custom Chrome extensions that boost productivity, automate workflows, and add smart functionality right inside the browser. Built for the Web Store.</p>
-  <div class="service-tags">
-    <span class="service-tag">Chrome API</span>
-    <span class="service-tag">JavaScript</span>
-    <span class="service-tag">Manifest V3</span>
-  </div>
-</div>
-
-<div class="service-card reveal">
-  <div class="service-icon">🤖</div>
-  <h3>AI & Automation</h3>
-  <p>Integrate AI into your products — chatbots, intelligent automation, data pipelines, and machine learning solutions that make software smarter.</p>
-  <div class="service-tags">
-    <span class="service-tag">OpenAI</span>
-    <span class="service-tag">Azure AI</span>
-  </div>
-</div>
-```
-
+<section class="sec" id="services" style="background:var(--bg2)">
+  <div class="sec-inner">
+    <div class="sec-label">What We Do</div>
+    <h2 class="sec-title fade-up">Complete <span>Development</span><br/>Services for Your Business</h2>
+    <p class="sec-desc fade-up">From a single feature to a full product — we build, deploy, and scale software that drives real results.</p>
+    <div class="srv-grid">
+      <div class="srv-card fade-up">
+        <div class="img-service srv-web">🌐</div>
+        <div class="srv-body">
+          <div class="srv-icon">🌐</div>
+          <h3>Web Applications</h3>
+          <p>Full-stack web apps that are fast, secure, and scalable. From landing pages to complex enterprise portals.</p>
+          <div class="srv-tags"><span class="srv-tag">React</span><span class="srv-tag">ASP.NET</span><span class="srv-tag">Node.js</span></div>
+        </div>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="img-service srv-mobile">📱</div>
+        <div class="srv-body">
+          <div class="srv-icon">📱</div>
+          <h3>Mobile Applications</h3>
+          <p>Native and cross-platform mobile apps for iOS and Android with seamless backend integration.</p>
+          <div class="srv-tags"><span class="srv-tag">React Native</span><span class="srv-tag">.NET MAUI</span><span class="srv-tag">iOS/Android</span></div>
+        </div>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="img-service srv-cloud">☁️</div>
+        <div class="srv-body">
+          <div class="srv-icon">☁️</div>
+          <h3>Azure Cloud Solutions</h3>
+          <p>End-to-end Microsoft Azure — cloud architecture, DevOps pipelines, and serverless functions.</p>
+          <div class="srv-tags"><span class="srv-tag">Azure</span><span class="srv-tag">DevOps</span><span class="srv-tag">Serverless</span></div>
+        </div>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="img-service srv-desktop">🖥️</div>
+        <div class="srv-body">
+          <div class="srv-icon">🖥️</div>
+          <h3>Desktop Software</h3>
+          <p>Powerful Windows desktop applications built for performance, reliability, and great user experience.</p>
+          <div class="srv-tags"><span class="srv-tag">.NET / C#</span><span class="srv-tag">WPF</span><span class="srv-tag">.NET Blazor</span></div>
+        </div>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="img-service srv-chrome">🧩</div>
+        <div class="srv-body">
+          <div class="srv-icon">🧩</div>
+          <h3>Chrome Extensions</h3>
+          <p>Custom Chrome extensions that boost productivity and automate workflows. Built for the Web Store.</p>
+          <div class="srv-tags"><span class="srv-tag">Chrome API</span><span class="srv-tag">JavaScript</span><span class="srv-tag">Manifest V3</span></div>
+        </div>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="img-service srv-ai">🤖</div>
+        <div class="srv-body">
+          <div class="srv-icon">🤖</div>
+          <h3>AI & Automation</h3>
+          <p>Integrate AI into your products — chatbots, intelligent automation, and solutions that make software smarter.</p>
+          <div class="srv-tags"><span class="srv-tag">OpenAI</span><span class="srv-tag">Azure AI</span><span class="srv-tag">Automation</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- WHY US -->
-
-<section id="why">
-  <div>
-    <div class="section-tag">Why C Sharp Solutions</div>
-    <h2 class="section-title reveal">Built Different.<br/><em>Delivered Right.</em></h2>
-    <p class="section-sub reveal">We are a lean, expert team that moves fast without cutting corners. Every project gets our full attention from kickoff to launch.</p>
-    <div class="why-list">
-      <div class="why-item reveal">
-        <div class="why-num">01</div>
-        <div>
-          <h4>Full-Stack Expertise</h4>
-          <p>We cover every layer — frontend, backend, cloud, and mobile — so you never need multiple vendors.</p>
+<section class="sec" id="why">
+  <div class="sec-inner">
+    <div class="why-grid">
+      <div class="why-imgwrap fade-up">
+        <div class="img-about">
+          <div class="img-about-content">
+            <span class="big-icon">👨‍💻</span>
+            <h3>Expert Development Team</h3>
+            <p>10+ years building enterprise software<br/>with Microsoft technologies</p>
+          </div>
         </div>
+        <div class="why-badge"><strong>10+</strong><span>Years Experience</span></div>
       </div>
-      <div class="why-item reveal">
-        <div class="why-num">02</div>
-        <div>
-          <h4>Microsoft Ecosystem Specialists</h4>
-          <p>Deep expertise in .NET, C#, Azure, and the entire Microsoft stack for enterprise-grade solutions.</p>
-        </div>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-num">03</div>
-        <div>
-          <h4>Agile & Transparent</h4>
-          <p>Regular updates, clear communication, and milestone-based delivery so you're always in control.</p>
-        </div>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-num">04</div>
-        <div>
-          <h4>Scalable by Default</h4>
-          <p>We architect for growth from day one — your software will handle 10 users or 10 million.</p>
+      <div>
+        <div class="sec-label">Why Choose Us</div>
+        <h2 class="sec-title fade-up">Built Different.<br/><span>Delivered Right.</span></h2>
+        <p class="sec-desc fade-up">We are a lean, expert team that moves fast without cutting corners. Every project gets full attention from kickoff to launch.</p>
+        <div class="why-items">
+          <div class="why-item fade-up"><div class="why-num">01</div><div><h4>Full-Stack Expertise</h4><p>We cover every layer — frontend, backend, cloud, and mobile — so you never need multiple vendors.</p></div></div>
+          <div class="why-item fade-up"><div class="why-num">02</div><div><h4>Microsoft Ecosystem Specialists</h4><p>Deep expertise in .NET, C#, Azure, and the Microsoft stack for enterprise-grade solutions.</p></div></div>
+          <div class="why-item fade-up"><div class="why-num">03</div><div><h4>Agile & Transparent</h4><p>Regular updates, clear communication, and milestone-based delivery so you're always in control.</p></div></div>
+          <div class="why-item fade-up"><div class="why-num">04</div><div><h4>Scalable by Default</h4><p>We architect for growth from day one — your software will handle 10 users or 10 million.</p></div></div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="why-visual reveal">
-    <div class="why-visual-title">Our Tech Stack</div>
-    <div class="tech-stack">
-      <span class="tech-item">C# / .NET</span>
-      <span class="tech-item">React</span>
-      <span class="tech-item">Azure</span>
-      <span class="tech-item">Node.js</span>
-      <span class="tech-item">SQL Server</span>
-      <span class="tech-item">React Native</span>
-      <span class="tech-item">.NET MAUI</span>
-      <span class="tech-item">OpenAI API</span>
-      <span class="tech-item">Docker</span>
-      <span class="tech-item">Kubernetes</span>
-      <span class="tech-item">GitHub Actions</span>
-      <span class="tech-item">TypeScript</span>
-      <span class="tech-item">Azure DevOps</span>
-      <span class="tech-item">.NET Blazor</span>
+<!-- TECH STACK -->
+<section class="sec stk-section">
+  <div class="sec-inner">
+    <div class="sec-label">Technology</div>
+    <h2 class="sec-title fade-up" style="color:#fff">Our <span style="color:#60a5fa">Tech Stack</span></h2>
+    <p class="sec-desc fade-up" style="color:#64748b">Modern, battle-tested technologies to build reliable and scalable software.</p>
+    <div class="stk-grid">
+      <div class="stk-item fade-up"><div class="stk-icon">🔷</div><div class="stk-name">C# / .NET</div><div class="stk-sub">Backend</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">⚛️</div><div class="stk-name">React</div><div class="stk-sub">Frontend</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🪟</div><div class="stk-name">Azure</div><div class="stk-sub">Cloud</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🟩</div><div class="stk-name">Node.js</div><div class="stk-sub">Backend</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🗄️</div><div class="stk-name">SQL Server</div><div class="stk-sub">Database</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">📱</div><div class="stk-name">React Native</div><div class="stk-sub">Mobile</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🐳</div><div class="stk-name">Docker</div><div class="stk-sub">DevOps</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🤖</div><div class="stk-name">OpenAI API</div><div class="stk-sub">AI</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">⚡</div><div class="stk-name">TypeScript</div><div class="stk-sub">Language</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🔥</div><div class="stk-name">Azure DevOps</div><div class="stk-sub">CI/CD</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">🌐</div><div class="stk-name">.NET Blazor</div><div class="stk-sub">Web UI</div></div>
+      <div class="stk-item fade-up"><div class="stk-icon">☸️</div><div class="stk-name">Kubernetes</div><div class="stk-sub">Orchestration</div></div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-
-<section id="process">
-  <div class="section-tag">How We Work</div>
-  <h2 class="section-title reveal">Our <em>Simple Process</em></h2>
-  <p class="section-sub reveal">A clear, repeatable process that keeps every project on track and every client informed.</p>
-
-  <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="step-num">1</div>
-      <h4>Discovery</h4>
-      <p>We listen, ask the right questions, and define the scope, goals, and technical requirements.</p>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">2</div>
-      <h4>Design & Plan</h4>
-      <p>Wireframes, architecture diagrams, and a clear roadmap before a single line of code is written.</p>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">3</div>
-      <h4>Build & Test</h4>
-      <p>Agile sprints with regular demos. Rigorous testing at every stage to ensure quality and reliability.</p>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">4</div>
-      <h4>Launch & Support</h4>
-      <p>Smooth deployment to production with ongoing support, monitoring, and iteration post-launch.</p>
+<section class="sec" id="process" style="background:var(--bg2)">
+  <div class="sec-inner">
+    <div class="sec-label">How We Work</div>
+    <h2 class="sec-title fade-up">Our <span>Simple</span> Process</h2>
+    <p class="sec-desc fade-up">A clear, repeatable process that keeps every project on track and every client informed.</p>
+    <div class="prc-grid">
+      <div class="prc-step fade-up"><div class="prc-num">1</div><h4>Discovery</h4><p>We listen, ask the right questions, and define scope, goals, and technical requirements.</p></div>
+      <div class="prc-step fade-up"><div class="prc-num">2</div><h4>Design & Plan</h4><p>Wireframes, architecture diagrams, and a clear roadmap before any code is written.</p></div>
+      <div class="prc-step fade-up"><div class="prc-num">3</div><h4>Build & Test</h4><p>Agile sprints with regular demos and rigorous testing at every stage.</p></div>
+      <div class="prc-step fade-up"><div class="prc-num">4</div><h4>Launch & Support</h4><p>Smooth deployment with ongoing support and monitoring after launch.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-
-<section id="contact">
-  <div class="section-tag" style="background:rgba(26,108,242,0.2); color:#6fa8ff;">Get In Touch</div>
-  <h2 class="section-title">Have a Project in Mind?<br/><em>Let's Build It.</em></h2>
-  <p class="section-sub">Whether you have a fully scoped idea or just the seed of one — we'd love to hear from you and figure out how we can help.</p>
-
-  <div class="contact-card">
-    <a href="mailto:info@csharpsolutions.tech" class="contact-email">info@csharpsolutions.tech</a>
-    <div class="contact-details">
-      <div class="contact-row">
-        <span>🌐</span>
-        <span>csharpsolutions.tech</span>
-      </div>
-      <div class="contact-row">
-        <span>⚡</span>
-        <span>Typical response within 24 hours</span>
-      </div>
-      <div class="contact-row">
-        <span>🌍</span>
-        <span>Available for remote projects worldwide</span>
-      </div>
-    </div>
-    <a href="mailto:info@csharpsolutions.tech" class="btn-primary" style="justify-content:center; width:100%;">
-      Send Us a Message →
-    </a>
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Ready to Build Something Great?</h2>
+  <p>Let's discuss your project and see how we can help you succeed.</p>
+  <div class="cta-actions">
+    <a href="start-project.html" class="btn-white">Start a Project →</a>
+    <a href="contact.html" class="btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff;">Contact Us</a>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
-
 <footer>
-  <span>© 2025 C Sharp Solutions. All rights reserved.</span>
-  <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="mailto:info@csharpsolutions.tech">info@csharpsolutions.tech</a>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo"><div class="foot-logo-icon">C#</div><span class="foot-logo-name">C Sharp Solutions</span></div>
+      <p class="foot-desc">We build scalable, high-quality software solutions using modern technologies and best practices. Based globally, serving clients worldwide.</p>
+      <a href="mailto:info@csharpsolutions.tech" class="foot-email">info@csharpsolutions.tech</a>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <a href="index.html#services">Web Applications</a>
+      <a href="index.html#services">Mobile Apps</a>
+      <a href="index.html#services">Azure Cloud</a>
+      <a href="index.html#services">Desktop Software</a>
+      <a href="index.html#services">Chrome Extensions</a>
+      <a href="index.html#services">AI & Automation</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="start-project.html">Start a Project</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="mailto:info@csharpsolutions.tech">info@csharpsolutions.tech</a>
+      <a href="contact.html">Send a Message</a>
+      <a href="start-project.html">Get a Quote</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 C Sharp Solutions. All rights reserved.</span>
+    <span>Built with ❤️ for great software</span>
   </div>
 </footer>
 
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
