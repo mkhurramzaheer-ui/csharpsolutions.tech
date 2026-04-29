@@ -189,11 +189,11 @@
           return;
         }
 
-        setState(
-          'error',
-          'Verification failed',
-          errorDescription || 'This verification link is invalid. Please request a new verification email from the extension.'
-        );
+       setState(
+  'error',
+  'Verification failed',
+  errorDescription || 'This verification link is invalid. Please request a new verification by sign in again from the extension and try again.'
+);
         return;
       }
 
