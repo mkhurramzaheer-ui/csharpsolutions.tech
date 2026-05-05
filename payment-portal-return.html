@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing Portal - TimePro</title>
+  <style>
+    :root {
+      --bg: #f8f5f0;
+      --text: #1a1714;
+      --muted: #9a9189;
+      --card: #ffffff;
+      --border: rgba(26,23,20,0.08);
+      --accent: #c9873a;
+      --accent-soft: rgba(201,135,58,0.14);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      width: min(720px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 22px 18px;
+      box-shadow: 0 10px 36px rgba(26,23,20,0.06);
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .brand .brackets { color: rgba(26,23,20,0.35); font-weight: 700; font-size: 22px; }
+    .brand .name { font-weight: 800; font-size: 22px; letter-spacing: -0.3px; }
+    .brand .name span { color: var(--accent); }
+    .title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .sub {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .status {
+      background: var(--accent-soft);
+      border: 1px solid rgba(201,135,58,0.35);
+      color: #8a5a1f;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .fineprint {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+    .actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid rgba(26,23,20,0.14);
+      background: #fff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: inherit;
+    }
+    .btn.primary {
+      border-color: rgba(201,135,58,0.55);
+      background: rgba(201,135,58,0.12);
+      color: #8a5a1f;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">
+      <div class="brackets">[</div>
+      <div class="name">Time<span>Pro</span></div>
+      <div class="brackets">]</div>
+    </div>
+
+    <div class="title">Billing portal</div>
+    <div class="sub">
+      You can manage your card and subscription in Stripe. When you’re done, come back to the extension to refresh your plan.
+    </div>
+
+    <div class="status">All set — your billing changes are saved.</div>
+
+    <div class="fineprint">
+      You can close this tab and continue your work at TimePro extension like this.
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" type="button" onclick="window.close()">Close this tab</button>
+    </div>
+  </div>
+</body>
+</html>
+
