@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TimeTrue – See Every Timezone, Instantly</title>
+<title>TimeTrue – Convert Times &amp; Set Reminders | Hover, pin &amp; remind</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Instrument+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -58,7 +58,6 @@
   }
   .nav-cta:hover { background: var(--accent) !important; }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: grid; grid-template-columns: 1fr 1fr;
@@ -136,7 +135,6 @@
   }
   .btn-ghost:hover { color: var(--dark); }
 
-  /* DEMO CARD */
   .hero-right { position: relative; z-index: 1; animation: fadeUp 0.7s 0.2s ease both; }
 
   .clock-demo {
@@ -224,7 +222,6 @@
     letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
   }
 
-  /* PAIN */
   .pain { padding: 100px 60px; border-top: 1px solid var(--border); background: var(--white); }
 
   .pain h2 {
@@ -247,7 +244,6 @@
   .pain-item p { font-size: 13px; color: var(--muted); line-height: 1.7; }
   .pain-time { margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); }
 
-  /* HOW */
   .how { padding: 100px 60px; border-top: 1px solid var(--border); }
 
   .how h2 {
@@ -276,7 +272,6 @@
   .step h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
   .step p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-  /* BROWSER DEMO */
   .demo-section {
     padding: 100px 60px; background: var(--dark);
     position: relative; overflow: hidden;
@@ -339,7 +334,6 @@
     margin-left: 8px; vertical-align: middle;
   }
 
-  /* FEATURES */
   .features { padding: 100px 60px; border-top: 1px solid var(--border); }
 
   .features-header {
@@ -376,7 +370,6 @@
   .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
   .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-  /* FAQ */
   .faq { padding: 100px 60px; background: var(--white); border-top: 1px solid var(--border); }
   .faq-inner { max-width: 680px; margin: 0 auto; }
 
@@ -405,7 +398,6 @@
   .faq-a { font-size: 14px; color: var(--muted); line-height: 1.8; margin-top: 14px; display: none; }
   .faq-item.open .faq-a { display: block; }
 
-  /* FINAL */
   .final {
     padding: 120px 60px; text-align: center;
     position: relative; overflow: hidden; border-top: 1px solid var(--border);
@@ -441,7 +433,6 @@
     font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px;
   }
 
-  /* FOOTER */
   footer {
     border-top: 1px solid var(--border); padding: 32px 60px;
     display: flex; justify-content: space-between; align-items: center;
@@ -455,7 +446,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* REMINDER SECTION */
   .reminder-section {
     padding: 100px 60px;
     background: var(--dark);
@@ -514,7 +504,6 @@
 
   .rstep-desc { font-size: 13px; color: rgba(248,245,240,0.45); line-height: 1.6; }
 
-  /* REMINDER MOCKUP */
   .reminder-right { display: flex; flex-direction: column; gap: 16px; }
 
   .reminder-mockup {
@@ -602,7 +591,6 @@
   }
   .rmock-btn:hover { background: var(--accent); }
 
-  /* NOTIFICATION MOCKUP */
   .notif-mockup {
     background: #2c2c2e;
     border-radius: 14px; padding: 16px 18px;
@@ -646,7 +634,6 @@
     .features-header { flex-direction: column; align-items: flex-start; }
     footer { padding: 24px; flex-direction: column; text-align: center; }
   }
-
 </style>
 </head>
 <body>
@@ -659,18 +646,17 @@
     <li><a href="#reminder">Reminders</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#install" class="nav-cta">Add to Chrome — Free</a></li>
+    <li><a href="https://chromewebstore.google.com/detail/timetrue/hlnbljpapldmkpaicdhokkfibdakjmoi" class="nav-cta" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag"><span class="live-dot"></span>&nbsp; Free Chrome Extension</div>
+    <div class="hero-tag"><span class="live-dot"></span>&nbsp; Chrome extension</div>
     <h1>Stop Converting<br>Timezones <em>Manually.</em><br>Ever Again.</h1>
-    <p class="hero-sub">Hover over any time on any webpage — instantly see it in your local timezone. No tabs, no tools, no copy-pasting. It just works.</p>
+    <p class="hero-sub">Hover over times on webpages to see your local time and compare cities. Pin times and get reminders when you want them — optional account for sync, desktop notifications, and email (where enabled).</p>
     <div class="hero-actions">
-      <a href="#install" class="btn-primary">🕐 Add to Chrome — It's Free</a>
+      <a href="https://chromewebstore.google.com/detail/timetrue/hlnbljpapldmkpaicdhokkfibdakjmoi" class="btn-primary" target="_blank" rel="noopener noreferrer">🕐 Add to Chrome</a>
       <a href="#how" class="btn-ghost">See how it works →</a>
     </div>
   </div>
@@ -726,7 +712,6 @@
   </div>
 </section>
 
-<!-- PAIN -->
 <section class="pain" id="pain">
   <div class="section-label">// The Problem</div>
   <h2>Every timezone takes<br><em>5 steps</em> too many.</h2>
@@ -734,13 +719,13 @@
     <div class="pain-item">
       <div class="pain-icon">📋</div>
       <h3>Copy the time</h3>
-      <p>Highlight "3pm EST" from the article, email or tweet you're reading. Break your focus.</p>
+      <p>Highlight "3pm EST" from the article, email or ticket you're reading. Break your focus.</p>
       <div class="pain-time">Step 1 of 5</div>
     </div>
     <div class="pain-item">
       <div class="pain-icon">🌐</div>
       <h3>Open a new tab</h3>
-      <p>Navigate to worldtimebuddy or Google. Lose your place in whatever you were reading.</p>
+      <p>Navigate to a converter or search. Lose your place in whatever you were reading.</p>
       <div class="pain-time">Step 2 of 5</div>
     </div>
     <div class="pain-item">
@@ -751,44 +736,42 @@
     </div>
     <div class="pain-item">
       <div class="pain-icon">🔙</div>
-      <h3>Go back & refocus</h3>
-      <p>Navigate back. Scroll to find where you were. Rebuild your mental context. Every. Single. Time.</p>
-      <div class="pain-time">Steps 4 & 5</div>
+      <h3>Go back &amp; refocus</h3>
+      <p>Navigate back, scroll, rebuild context. Every. Single. Time.</p>
+      <div class="pain-time">Steps 4 &amp; 5</div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="section-label">// The Solution</div>
-  <h2>Install once.<br><em>Never convert again.</em></h2>
+  <h2>Install once.<br><em>Use it your way.</em></h2>
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
       <div class="step-icon">⚡</div>
-      <h3>Install in one click</h3>
-      <p>Add TimeTrue to Chrome. No signup, no account, no configuration. It starts working immediately — right out of the box.</p>
+      <h3>Install from the Chrome Web Store</h3>
+      <p>Add TimeTrue in one click. Hover conversion works on pages as you browse. For reminders, sync across devices, and Google sign-in, create a free account inside the extension when you're ready.</p>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <div class="step-icon">🔍</div>
-      <h3>It detects every time</h3>
-      <p>TimeTrue scans any webpage you visit and silently detects all times and timezones — in emails, tweets, articles, Slack, Notion, anywhere.</p>
+      <h3>It finds times in context</h3>
+      <p>TimeTrue looks for common time patterns in page text — emails, docs, tickets, chats — so you can understand them in your timezone without leaving the page.</p>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <div class="step-icon">🕐</div>
-      <h3>Hover to see yours</h3>
-      <p>Move your mouse over any time. Your local equivalent appears instantly in a clean tooltip. Zero clicks. Zero tabs. Zero interruption.</p>
+      <h3>Hover to compare</h3>
+      <p>Move your cursor over a time to preview your local time and cities. Click when you want to pin or set a reminder.</p>
     </div>
   </div>
 </section>
 
-<!-- BROWSER DEMO -->
 <section class="demo-section">
   <div class="section-label">// See It In Action</div>
-  <h2>Works on <em>every</em> website.<br>Right now.</h2>
-  <p class="sub">Gmail, Twitter, Reddit, Slack Web, Notion, news sites — if there's a time written on the page, TimeTrue converts it.</p>
+  <h2>Works on <em>many</em> sites you already use.</h2>
+  <p class="sub">Gmail, Notion, support portals, scheduling pages — if a time is written in the page, TimeTrue can usually help. Some restricted pages (for example certain Google-owned surfaces) may limit extensions by design.</p>
 
   <div class="browser-mockup">
     <div class="browser-bar">
@@ -815,41 +798,39 @@
   </div>
 </section>
 
-<!-- REMINDER FEATURE -->
 <section class="reminder-section" id="reminder">
   <div class="reminder-inner">
     <div class="reminder-left">
       <div class="section-label">// Time Reminders</div>
       <h2>See a meeting time?<br><em>Pin it.</em> We'll remind you.</h2>
-      <p class="reminder-sub">Spot any time on any webpage — click to pin it. Set a custom reminder and we'll send a browser notification at exactly the right moment in your local time. No calendar app needed.</p>
+      <p class="reminder-sub">Click a time to open the reminder panel, add a note, and choose how early to notify you. Signed-in users get desktop notifications and can use email reminders where your plan and settings allow. If a tab was open before you installed TimeTrue, open the extension popup once on that page (or refresh) so the content script can attach.</p>
 
       <div class="reminder-steps">
         <div class="rstep">
           <div class="rstep-icon">📌</div>
           <div>
-            <div class="rstep-title">Click any time to pin it</div>
-            <div class="rstep-desc">See "Friday 3pm EST" anywhere — click it to open the reminder panel.</div>
+            <div class="rstep-title">Click a time to pin it</div>
+            <div class="rstep-desc">Opens the reminder panel for that moment in your local timezone.</div>
           </div>
         </div>
         <div class="rstep">
           <div class="rstep-icon">✏️</div>
           <div>
             <div class="rstep-title">Set your preferences</div>
-            <div class="rstep-desc">Name the event, write a custom message, choose how early to be reminded.</div>
+            <div class="rstep-desc">Name the event, add a message, choose how early to remind you.</div>
           </div>
         </div>
         <div class="rstep">
           <div class="rstep-icon">🔔</div>
           <div>
             <div class="rstep-title">Get notified in your time</div>
-            <div class="rstep-desc">A browser notification fires at exactly the right local time — even if the tab is closed.</div>
+            <div class="rstep-desc">Desktop notifications when enabled; optional email depending on your account and configuration.</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="reminder-right">
-      <!-- Reminder Panel Mockup -->
       <div class="reminder-mockup">
         <div class="rmock-bar">
           <span class="rmock-dot"></span>
@@ -886,7 +867,6 @@
         </div>
       </div>
 
-      <!-- Notification Mockup -->
       <div class="notif-mockup">
         <div class="notif-icon">🕐</div>
         <div class="notif-content">
@@ -899,116 +879,122 @@
   </div>
 </section>
 
-<!-- FEATURES -->
 <section class="features" id="features">
   <div class="features-header">
     <div>
       <div class="section-label">// Features</div>
       <h2>Everything you need.<br><em>Nothing you don't.</em></h2>
     </div>
-    <p class="features-sub">Built for remote workers, freelancers and global teams who deal with timezones every single day.</p>
+    <p class="features-sub">Built for remote workers, freelancers, and global teams who live in email, tickets, and chat.</p>
   </div>
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">⚡</div>
-      <h3>Instant Detection</h3>
-      <p>Finds times like "3pm EST", "14:00 CET", "9am London time" on any webpage automatically — no setup needed.</p>
+      <h3>Instant detection</h3>
+      <p>Finds common time patterns (for example "3pm EST", "14:00 CET") in page text so you can convert in context.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🌍</div>
-      <h3>Every Timezone</h3>
-      <p>Supports 400+ timezones — EST, PST, GMT, IST, PKT, JST, GST and more — with automatic daylight saving adjustments.</p>
+      <h3>Global timezones</h3>
+      <p>Uses your browser's timezone database so conversions respect DST and regional rules.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🖱️</div>
-      <h3>Hover — No Click</h3>
-      <p>Just move your cursor. Your local time appears immediately. Zero interruption to your reading or workflow.</p>
+      <h3>Hover first</h3>
+      <p>Preview your local time without leaving the page you're reading.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📌</div>
-      <h3>Pin & Remind</h3>
-      <p>Click any time to pin it. Set a custom message and get a browser notification at exactly the right local time.</p>
+      <h3>Pin &amp; remind</h3>
+      <p>Save important times and get notifications. Account features sync reminders where you've enabled them.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📅</div>
-      <h3>Dates Too</h3>
-      <p>Handles "Friday 9am PST" correctly — shows the right day in your timezone, not just the converted hour.</p>
+      <h3>Dates &amp; context</h3>
+      <p>Handles many "weekday + time + zone" patterns so the right calendar day shows in your timezone.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🔒</div>
-      <h3>100% Private</h3>
-      <p>Everything happens inside your browser. No data sent anywhere. No account. No tracking. Your privacy is absolute.</p>
+      <h3>Privacy-conscious</h3>
+      <p>Conversion runs in your browser. If you sign in, account and reminder data are sent only to our backend (Supabase) to power sync and notifications — never sold for ads. See the privacy policy for details.</p>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-inner">
     <h2>Got <em>questions?</em></h2>
 
     <div class="faq-item" onclick="this.classList.toggle('open')">
-      <div class="faq-q">Is TimeTrue really free? <span class="faq-toggle">+</span></div>
-      <div class="faq-a">Yes — completely free. No subscription, no trial, no hidden fees. Install and use it forever at no cost.</div>
+      <div class="faq-q">Is TimeTrue free? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">There is a free tier for core use. Some advanced capabilities (for example certain reminder or subscription options) may require a paid plan depending on how you configure your account. Check inside the extension for current plan details.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do I need an account? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">You can explore hover conversion without signing in for many flows. Creating an account unlocks reminders, sync across devices, and Google sign-in where enabled.</div>
     </div>
 
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">Which websites does it work on? <span class="faq-toggle">+</span></div>
-      <div class="faq-a">Every website. Gmail, Outlook Web, Twitter/X, Reddit, Slack Web, Notion, LinkedIn, news sites, forums — if there's a time written on the page, TimeTrue finds it.</div>
+      <div class="faq-a">Normal websites you browse over HTTPS. Some special Chrome pages and a few heavily sandboxed surfaces may block extensions — that's expected browser behavior.</div>
     </div>
 
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">Will it slow down my browser? <span class="faq-toggle">+</span></div>
-      <div class="faq-a">Not noticeably. TimeTrue is lightweight by design — it scans page text only when a page loads and uses minimal memory. You won't feel it running.</div>
+      <div class="faq-a">TimeTrue is designed to be lightweight. Work happens as pages load and when you interact; you should not notice meaningful slowdown on typical hardware.</div>
     </div>
 
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">Does it handle daylight saving time? <span class="faq-toggle">+</span></div>
-      <div class="faq-a">Yes, automatically. TimeTrue accounts for daylight saving changes for every timezone — so you always get the correct local time, never an off-by-one-hour mistake.</div>
+      <div class="faq-a">Yes — conversions use your browser's timezone data, which includes DST rules for IANA regions.</div>
     </div>
 
     <div class="faq-item" onclick="this.classList.toggle('open')">
-      <div class="faq-q">What data does it collect? <span class="faq-toggle">+</span></div>
-      <div class="faq-a">Nothing. All conversions happen locally inside your browser. No data is ever sent anywhere. No account required. Your privacy is completely protected.</div>
+      <div class="faq-q">What data does TimeTrue collect? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">The extension reads visible page text to find times. If you create an account, we store profile and authentication data and reminder content needed for sync and notifications, processed through our backend (Supabase) and payment providers where applicable. We do not sell your personal data. Read the full privacy policy for categories and choices.</div>
     </div>
 
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">Can I set my timezone manually? <span class="faq-toggle">+</span></div>
-      <div class="faq-a">Yes. TimeTrue detects your timezone automatically but you can override it anytime from the settings. You can also pin up to 5 additional cities to always show alongside your local time.</div>
+      <div class="faq-a">Yes — TimeTrue uses your system timezone by default, and you can adjust preferences in the extension settings, including pinned cities where supported.</div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final" id="install">
   <h2>One hover.<br><em>Your time.</em><br>Always.</h2>
-  <p>Join remote workers and global teams who never manually convert a timezone again.</p>
-  <a href="#" class="btn-primary">🕐 Add to Chrome — It's Free</a>
-  <p class="final-note">✓ Free forever &nbsp;·&nbsp; ✓ No account needed &nbsp;·&nbsp; ✓ No data collected</p>
+  <p>Install from the Chrome Web Store and stop re-deriving every meeting time in your head.</p>
+  <a href="https://chromewebstore.google.com/detail/timetrue/hlnbljpapldmkpaicdhokkfibdakjmoi" class="btn-primary" target="_blank" rel="noopener noreferrer">🕐 Add to Chrome</a>
+  <p class="final-note">Free tier · Optional account for sync &amp; reminders · Privacy policy linked below</p>
 </section>
 
-<!-- CONTACT -->
 <section style="padding: 60px; background: var(--white); border-top: 1px solid var(--border); text-align:center;">
   <div class="section-label" style="margin-bottom:12px;">// Get In Touch</div>
   <h3 style="font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,36px); font-weight:900; margin-bottom:12px;">Questions? We'd love to <em style="font-style:italic; color:var(--accent);">hear from you.</em></h3>
-  <p style="color:var(--muted); font-size:15px; margin-bottom:32px;">Whether it's a bug report, feature request, or just to say hi.</p>
+  <p style="color:var(--muted); font-size:15px; margin-bottom:32px;">Bug reports, feature ideas, or account help — reach us anytime.</p>
   <div style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap;">
     <a href="mailto:info@csharpsolutions.tech" style="display:inline-flex; align-items:center; gap:10px; background:var(--dark); color:var(--cream); padding:14px 28px; border-radius:100px; font-size:14px; font-weight:600; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='#c9873a'" onmouseout="this.style.background='#1a1714'">
       ✉ info@csharpsolutions.tech
     </a>
-    <a href="https://csharpsolutions.tech" target="_blank" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--dark); padding:14px 28px; border-radius:100px; font-size:14px; font-weight:600; text-decoration:none; border:1px solid var(--border); transition:border-color 0.2s;" onmouseover="this.style.borderColor='#c9873a'; this.style.color='#c9873a'" onmouseout="this.style.borderColor='rgba(26,23,20,0.1)'; this.style.color='#1a1714'">
+    <a href="https://csharpsolutions.tech" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--dark); padding:14px 28px; border-radius:100px; font-size:14px; font-weight:600; text-decoration:none; border:1px solid var(--border); transition:border-color 0.2s;" onmouseover="this.style.borderColor='#c9873a'; this.style.color='#c9873a'" onmouseout="this.style.borderColor='rgba(26,23,20,0.1)'; this.style.color='#1a1714'">
       🌐 csharpsolutions.tech
+    </a>
+    <!-- Update href if your privacy page URL differs -->
+    <a href="https://csharpsolutions.tech/timetrue-privacy-policy.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--dark); padding:14px 28px; border-radius:100px; font-size:14px; font-weight:600; text-decoration:none; border:1px solid var(--border); transition:border-color 0.2s;" onmouseover="this.style.borderColor='#c9873a'; this.style.color='#c9873a'" onmouseout="this.style.borderColor='rgba(26,23,20,0.1)'; this.style.color='#1a1714'">
+      🔐 Privacy policy
     </a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="logo">Time<span>True</span></div>
-  <p>© 2026 TimeTrue by <a href="https://csharpsolutions.tech" target="_blank" style="color:var(--accent); text-decoration:none;">CSharp Solutions</a>. Built for a world without timezone confusion.</p>
-  <div style="display:flex; gap:20px; align-items:center;">
-    <a href="https://csharpsolutions.tech" target="_blank" style="font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#c9873a'" onmouseout="this.style.color='#9a9189'">🌐 csharpsolutions.tech</a>
-    <a href="mailto:info@csharpsolutions.tech" style="font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#c9873a'" onmouseout="this.style.color='#9a9189'">✉ info@csharpsolutions.tech</a>
+  <p>© 2026 TimeTrue by <a href="https://csharpsolutions.tech" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:none;">C Sharp Solutions</a>. Built for clearer scheduling across timezones.</p>
+  <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+    <a href="https://csharpsolutions.tech" target="_blank" rel="noopener noreferrer" style="font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#c9873a'" onmouseout="this.style.color='#9a9189'">🌐 Website</a>
+    <a href="mailto:info@csharpsolutions.tech" style="font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#c9873a'" onmouseout="this.style.color='#9a9189'">✉ Email</a>
+    <a href="https://csharpsolutions.tech/timetrue-privacy-policy.html" target="_blank" rel="noopener noreferrer" style="font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#c9873a'" onmouseout="this.style.color='#9a9189'">Privacy</a>
+    <a href="https://chromewebstore.google.com/detail/timetrue/hlnbljpapldmkpaicdhokkfibdakjmoi" target="_blank" rel="noopener noreferrer" style="font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#c9873a'" onmouseout="this.style.color='#9a9189'">Chrome Web Store</a>
   </div>
 </footer>
 
